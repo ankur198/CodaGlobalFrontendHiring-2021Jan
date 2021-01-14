@@ -32,7 +32,7 @@ export const mutations = {
     state.users.forEach((user) => {
       if (user.Selected) {
         const won = user.Bet == state.fate
-        console.log(won);
+        console.log(won)
         if (won) {
           user.Wins += 1
         } else {
@@ -48,7 +48,8 @@ export const actions = {
     if (context.state.users.length == 0) {
       console.info('fetch request triggered')
       const res = await fetch(
-        'https://s3-ap-southeast-1.amazonaws.com/he-public-data/bets7747a43.json'
+        'https://s3-ap-southeast-1.amazonaws.com/he-public-data/bets7747a43.json',
+        { mode: 'no-cors' }
       )
       const data = await res.json()
       context.commit('addUsers', data)
