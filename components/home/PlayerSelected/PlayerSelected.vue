@@ -10,12 +10,19 @@
         :data="player"
       />
     </div>
-    <button :disabled="selectedUsers.length !== 9" class="start">Start</button>
+    <NuxtLink to="/bet"
+      ><button :disabled="selectedUsers.length !== 9" class="start">
+        Start
+      </button></NuxtLink
+    >
   </div>
 </template>
 
 <script>
+import Player from './Player.vue'
+
 export default {
+  components: { Player },
   computed: {
     selectedUsers() {
       return this.$store.state.users.filter((x) => x.Selected)
@@ -52,7 +59,7 @@ export default {
     font-weight: bold;
     letter-spacing: 0.2rem;
     font-size: 1.2rem;
-    box-shadow: 0px 0px 38px -21px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 38px -21px rgba(0, 0, 0, 0.75);
 
     &:disabled {
       background: $buttonhoverbg;
