@@ -1,7 +1,7 @@
 <template>
-  <div class="container">
+  <div class="statistics">
     <div class="totalPlaying">Select Playing 9</div>
-    <Table />
+    <Table/>
   </div>
 </template>
 
@@ -10,9 +10,11 @@ export default {}
 </script>
 
 <style lang="scss" scoped>
-.container {
+.statistics {
   display: flex;
   flex-direction: column;
+  // display: grid;
+  // grid-template-rows: auto 3fr 1fr;
   background: $statsbg;
 
   .totalPlaying {

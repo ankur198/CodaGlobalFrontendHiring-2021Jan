@@ -4,7 +4,18 @@ export const state = () => ({
 
 export const mutations = {
   addUsers(state, users) {
-    state.users = [...state.users, users]
+    for (const user of users) {
+      user.Index = state.users.length
+      user.Selected = false
+      user.Wins = Math.floor(Math.random() * 15)
+      user.Lost = Math.floor(Math.random() * 15)
+      user.Level = Math.floor(Math.random() * 14) + 1 // level should never be 0
+
+      state.users = [...state.users, user]
+    }
+  },
+  userSelectedToggled(state, data) {
+    state.users[data.index].Selected = data.checked
   },
 }
 

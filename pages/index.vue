@@ -8,7 +8,7 @@
 <script>
 export default {
   async beforeMount() {
-    //await this.$store.dispatch('fetchData')
+    await this.$store.dispatch('fetchData')
     console.log(this.$store.state.users)
   },
 }
@@ -17,8 +17,9 @@ export default {
 <style lang="scss" scoped>
 .container {
   display: grid;
-  height: 100vh;
+  min-height: 100vh;
   grid-template-columns: 420px 4fr;
+  // grid-template-columns: 0px 4fr;
   & > * {
     padding: 0 50px;
     padding-top: 5vh;
