@@ -1,3 +1,11 @@
+import VuexPersistence from 'vuex-persist'
+
+const vuexLocal = new VuexPersistence({
+  storage: window.localStorage,
+})
+
+export const plugins = [vuexLocal.plugin]
+
 export const state = () => ({
   users: [],
 })
@@ -21,10 +29,13 @@ export const mutations = {
 
 export const actions = {
   async fetchData(context) {
-    const res = await fetch(
-      'https://s3-ap-southeast-1.amazonaws.com/he-public-data/bets7747a43.json'
-    )
-    const data = await res.json()
-    context.commit('addUsers', data)
+    if (context.state.users.length == 0) {
+      console.info("fetch request triggered");
+      const res = await fetch(
+        'https://s3-ap-southeast-1.amazonaws.com/he-public-data/bets7747a43.json'
+      )
+      const data = await res.json()
+      context.commit('addUsers', data)
+    }
   },
 }
