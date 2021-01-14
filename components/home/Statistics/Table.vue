@@ -153,8 +153,8 @@ export default {
     & > * {
       display: grid;
       align-items: stretch;
-      // grid-template-columns: 1fr 200px 1fr 1fr 1fr 1fr 1fr 1fr;
-      grid-template-columns: 1fr 3fr 1fr 1fr 1fr 1fr 1fr 1fr;
+      grid-template-columns: 1fr 200px 1fr 1fr 1fr 1fr 1fr 1fr;
+      // grid-template-columns: 1fr 3fr 1fr 1fr 1fr 1fr 1fr 1fr;
       border-bottom: 1px solid $secondary;
 
       & > * {
