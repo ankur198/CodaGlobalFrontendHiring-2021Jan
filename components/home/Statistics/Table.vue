@@ -3,7 +3,7 @@
     <SearchPlayer @input="onInput" />
     <div class="table">
       <div class="header">
-        <div>Select</div>
+        <div @click="changeSortOption('Selected')">Select</div>
         <div @click="changeSortOption('Name')">Player Name</div>
         <div @click="changeSortOption('Level')">Level</div>
         <div>Avatar</div>
@@ -85,11 +85,11 @@ export default {
       const users = this.inSearchUsers.sort((x, y) => {
         const a = x[this.sortOption.property]
         const b = y[this.sortOption.property]
-        if (typeof x[this.sortOption.property] === 'number') {
-          return a - b
-        } else if (typeof x[this.sortOption.property] === 'string') {
+        if (typeof x[this.sortOption.property] === 'string') {
           return (a > b) - (a < b)
-        }
+        }else {
+          return a - b
+        } 
       })
       if (this.sortOption.desending) {
         return users.reverse()
@@ -176,6 +176,7 @@ export default {
         font-weight: 600;
         font-size: 0.8em;
         cursor: pointer;
+        text-transform: uppercase;
 
         img {
           width: 24px;
