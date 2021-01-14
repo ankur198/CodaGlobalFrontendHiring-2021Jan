@@ -28,6 +28,7 @@
         <label class="checkbox-container">
           <input
             type="checkbox"
+            :checked="user.Selected"
             @change="onSelectedToggled(user.Index, $event)"
           />
           <span class="checkmark"></span>
@@ -96,7 +97,8 @@ export default {
       return users
     },
     pagedUsers() {
-      return this.sortedUsers.slice(this.page, this.page + 10)
+      const start = this.page * 10
+      return this.sortedUsers.slice(start, start + 10)
     },
     canGotoNextPage() {
       return (this.page + 1) * 10 < this.inSearchUsers.length

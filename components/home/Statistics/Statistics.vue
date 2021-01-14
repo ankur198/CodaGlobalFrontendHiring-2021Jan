@@ -1,6 +1,6 @@
 <template>
   <div class="statistics">
-    <div class="totalPlaying">Select Playing 9</div>
+    <div class="totalPlaying">Select 9 Players</div>
     <Table/>
   </div>
 </template>
