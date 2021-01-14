@@ -49,7 +49,13 @@ export const actions = {
       console.info('fetch request triggered')
       const res = await fetch(
         'https://s3-ap-southeast-1.amazonaws.com/he-public-data/bets7747a43.json',
-        { mode: 'no-cors' }
+        {
+          // mode: 'no-cors',
+          method: 'GET',
+          headers: {
+            Accept: 'application/json',
+          },
+        }
       )
       const data = await res.json()
       context.commit('addUsers', data)
