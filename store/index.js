@@ -35,6 +35,7 @@ export const mutations = {
         console.log(won)
         if (won) {
           user.Wins += 1
+          user.Price *= 2
         } else {
           user.Lost += 1
         }
