@@ -42,7 +42,6 @@ export default {
   width: 30%;
   min-width: 200px;
   max-width: 300px;
-  opacity: 70%;
 
   &.active {
     border-bottom: 2px solid $purple;
